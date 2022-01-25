@@ -1,0 +1,21 @@
+{
+  "name": "snapshot-farm",
+  "license": "MIT",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ radialfinance/snapshot-farm --access-token ",
+    "codegen-lobs": "graph codegen subgraph-lobsters.yaml",
+    "build-lobs": "graph build subgraph-lobsters.yaml",
+    "deploy-lobs": "graph deploy --node https://api.thegraph.com/deploy/ radialfinance/lobsters-nft subgraph-lobsters.yaml --access-token ",
+    "create-local": "graph create --node http://localhost:8020/ radialfinance/snapshot-farm",
+    "remove-local": "graph remove --node http://localhost:8020/ radialfinance/snapshot-farm",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 radialfinance/snapshot-farm"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.26.0",
+    "@graphprotocol/graph-ts": "0.24.1",
+    "axios": "^0.25.0",
+    "ethers": "^5.5.3"
+  }
+}

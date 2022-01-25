@@ -1,0 +1,15 @@
+type Balance @entity {
+  id: ID!
+  pid: BigInt!
+  address: String!
+  balance: BigInt!
+  snapshots: [Snapshot!]!
+  latestSnapShotId: String!
+}
+
+type Snapshot @entity {
+  id: ID!
+  balance: BigInt!
+  startTime: BigInt!
+  endTime: BigInt
+}

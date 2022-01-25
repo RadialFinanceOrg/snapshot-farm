@@ -1,0 +1,27 @@
+{
+    "rpc": {
+        "url": "https://rpc.ftm.tools/"
+    },
+    "snapshot": {
+        "end": {
+            "block": 28836119,
+            "timestamp": 1642957200
+        },
+        "start": {
+            "timestamp": 1642616175
+        },
+        "rewards": {
+            "intervals": 5,
+            "rewardStep": 0.25,
+            "totalAmount": "5000000000000000000000000"
+        },
+        "lobsters": {
+            "endBlock": 14063128,
+            "reward": "1000000000000000000000000"
+        }
+    },
+    "subgraph": {
+        "url": "https://api.thegraph.com/subgraphs/name/radialfinance/snapshot-farm",
+        "lobsters": "https://api.thegraph.com/subgraphs/name/radialfinance/lobsters-nft"
+    }
+}

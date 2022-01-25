@@ -1,0 +1,5 @@
+type Lobster @entity {
+  id: ID!
+  address: String!
+  tokens: [BigInt!]!
+}
