@@ -36,7 +36,7 @@ const getPrice = async (address, type) => {
         sharePriceInToken = BigNumber(sharePriceInToken.toString()).div(BigNumber(10).pow(tokenDecimals.toString()));
         let token = await yVault.callStatic.token();
         let tokenPrice = await getPrice(token, "direct");
-        let sharePrice = sharePriceInToken.div(BigNumber(tokenPrice));
+        let sharePrice = sharePriceInToken.times(BigNumber(tokenPrice));
         return sharePrice;
     } else if(type == "xSCREAM") {
         const xScream = new ethers.Contract(address, IxScream(), provider);
@@ -45,7 +45,7 @@ const getPrice = async (address, type) => {
         sharePriceInToken = BigNumber(sharePriceInToken.toString()).div(BigNumber(10).pow(tokenDecimals.toString()));
         let token = await xScream.callStatic.scream();
         let tokenPrice = await getPrice(token, "direct");
-        let sharePrice = sharePriceInToken.div(BigNumber(tokenPrice));
+        let sharePrice = sharePriceInToken.times(BigNumber(tokenPrice));
         return sharePrice;
     } else if(type == "xTAROT") {
         const xTarot = new ethers.Contract(address, IxTarot(), provider);
@@ -54,7 +54,7 @@ const getPrice = async (address, type) => {
         sharePriceInToken = BigNumber(sharePriceInToken.toString()).div(SCALER);
         let token = await xTarot.callStatic.underlying();
         let tokenPrice = await getPrice(token, "direct");
-        let sharePrice = sharePriceInToken.div(BigNumber(tokenPrice));
+        let sharePrice = sharePriceInToken.times(BigNumber(tokenPrice));
         return sharePrice;
     } else if(type == "xCREDIT") {
         const xCredit = new ethers.Contract(address, IxCredit(), provider);
@@ -63,7 +63,7 @@ const getPrice = async (address, type) => {
         sharePriceInToken = BigNumber(sharePriceInToken.toString()).div(BigNumber(10).pow(tokenDecimals.toString()));
         let token = await xCredit.callStatic.token();
         let tokenPrice = await getPrice(token, "direct");
-        let sharePrice = sharePriceInToken.div(BigNumber(tokenPrice));
+        let sharePrice = sharePriceInToken.times(BigNumber(tokenPrice));
         return sharePrice;
     } else if(type == "fBEETS") {
         return BigNumber("0.62");
