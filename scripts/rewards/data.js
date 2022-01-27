@@ -62,18 +62,12 @@ const calculateWeight = (start, balance) => {
 
     let weight = BigNumber(0);
 
-    for(let i=startEpoch; i <= endEpoch; i++) {
-        let epochStart = i*EPOCH_INTERVAL + REWARD_START;
-        let epochEnd = (i+1)*EPOCH_INTERVAL + REWARD_START - 1;
-        if(i == startEpoch) {
-            epochStart = start;
-        }
-        if(i == endEpoch) {
-            epochEnd = end;
-        }
-        const cycleWeight = (epochEnd - epochStart)*EPOCH_REWARD_WEIGHTS[i];
-        weight = weight.plus(BigNumber(cycleWeight));
-    }
+    // for(let i=startEpoch; i <= endEpoch; i++) {
+    //     const cycleWeight = EPOCH_REWARD_WEIGHTS[i];
+    //     weight = weight.plus(BigNumber(cycleWeight));
+    // }
+    const cycleWeight = EPOCH_REWARD_WEIGHTS[startEpoch];
+    weight = BigNumber(cycleWeight);
     return weight.times(balance);
 }
 

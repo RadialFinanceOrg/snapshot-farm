@@ -43,6 +43,7 @@ const getRewardData = async () => {
             rewardData[address] = rewardData[address].plus(userTokenWeight);
         }
     }
+    console.log("totalRewardWeight", totalRewardWeight.toString())
     return {rewardData, totalRewardWeight};
 }
 
